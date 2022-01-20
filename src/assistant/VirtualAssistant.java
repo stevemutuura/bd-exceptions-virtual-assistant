@@ -2,19 +2,28 @@ package assistant;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class VirtualAssistant {
 
+    private static final String startingPrompt = "How may I help you? Type 'quit' to end assistance.";
+    private static final String stopProgramKeyword = "quit";
+
     private String name;
+
+
+
+    // TODO Create the KeywordEnum
+
+
 
     public VirtualAssistant(String name) {
         this.name = name;
     }
 
     public void processInput(String input, Scanner scanner) {
-        // TODO Implement this method.
+        // TODO Follow instructions on README
+
     }
 
     /**
@@ -23,15 +32,17 @@ public class VirtualAssistant {
      */
     public void run() {
         Scanner scanner = new Scanner(System.in);
-        String input = waitForNextLine("How may I help you? Type 'quit' to end assistance.", scanner);
+        String input = waitForNextLine(startingPrompt, scanner);
 
-        while (!input.equalsIgnoreCase("quit")) {
-            // TODO This processInput will start having exceptions come to it to deal with.
+        while (!input.equalsIgnoreCase(stopProgramKeyword)) {
+            // TODO Fix exceptions that will occur upon further implementation of process input.
             processInput(input, scanner);
 
-            System.out.println();
-            input = waitForNextLine("How may I help you? Type 'quit' to end assistance.", scanner);
 
+
+
+            System.out.println();
+            input = waitForNextLine(startingPrompt, scanner);
         }
     }
 
@@ -72,7 +83,7 @@ public class VirtualAssistant {
      * Gets the current hour:minute:seconds of the user.
      * @return the current time in Hour:minute:second format
      */
-    public String getTime() {
+    public String getCurrentTime() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         return dateTimeFormatter.format(now);
