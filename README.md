@@ -102,33 +102,33 @@ the exception.
 inputted. For each of the keywords, implement the following
 actions:
 
-#####YELL
+##### YELL
 Prompt the user 'What would you like me to yell?'. 
 Get new input and print back the input in all uppercase with an !.
 
-#####TIME
+##### TIME
 Use the `getCurrentTime` method and print the result.
 
 
-#####SUM
+##### SUM
 Prompt the user 'Type in the numbers to sum separated by a space.' 
 Get new input then call the `sum` method and print the result.
 You will need to implement the sum method. We will use Scanner
 to get each number.
 
-#####PRODUCT
+##### PRODUCT
 Prompt the user 'Type in the numbers to multiply separated by a space.'
 Get new input then call the `product` method and print the result.
 You will need to implement the product method. We will use Scanner
 to get each number.
 
-#####LARGEST
+##### LARGEST
 Prompt the user 'Type in the numbers separated by a space.'
 Get new input then call the `largest` method and print the result.
 You will need to implement the largest method. We will use Scanner
 to get each number.
 
-#####OTHER KEYWORDS
+##### OTHER KEYWORDS
 Throw a KeywordNotImplementedException and handle this result
 in the `run` method.
 
