@@ -7,51 +7,31 @@ import java.util.Scanner;
 
 public class VirtualAssistant {
 
-    public enum KeywordEnum {
-        SUM,
-        PRODUCT,
-        LARGEST,
-        YELL,
-        TIME,
-        PLAY,
-        ORDER
-    }
-
     private String name;
 
     public VirtualAssistant(String name) {
         this.name = name;
     }
 
-    public void processInput(String input, Scanner scanner) throws AssistantNotImplementedException, AssistantIncorrectNameException, InputMismatchException {
-        if (!input.startsWith(name)) {
-            throw new AssistantIncorrectNameException();
-        }
-        String keyword = input.substring(name.length() + 1);
-        KeywordEnum key = KeywordEnum.valueOf(keyword.toUpperCase());
+    public void processInput(String input, Scanner scanner) {
+        // TODO Implement this method.
+    }
 
-        switch (key) {
-            case SUM:
-                double sum = sum(waitForNextLine("Type the numbers separated by a space to sum:", scanner));
-                System.out.println("The sum was " + sum);
-                break;
-            case PRODUCT:
-                double product = product(waitForNextLine("Type the numbers separated by a space to multiply:", scanner));
-                System.out.println("The product was " + product);
-                break;
-            case LARGEST:
-                double largest = largest(waitForNextLine("Type each number separated by a space:", scanner));
-                System.out.println("The largest value was " + largest);
-                break;
-            case YELL:
-                String phrase = waitForNextLine("What should I yell?", scanner);
-                System.out.println(phrase.toUpperCase() + "!");
-                break;
-            case TIME:
-                System.out.println("The time is " + getTime());
-                break;
-            default:
-                throw new AssistantNotImplementedException();
+    /**
+     * Places the virtual assistant into a run mode, where it is listening for the
+     * next typed in text. The assistant will end when 'quit' is entered as an input.
+     */
+    public void run() {
+        Scanner scanner = new Scanner(System.in);
+        String input = waitForNextLine("How may I help you? Type 'quit' to end assistance.", scanner);
+
+        while (!input.equalsIgnoreCase("quit")) {
+            // TODO This processInput will start having exceptions come to it to deal with.
+            processInput(input, scanner);
+
+            System.out.println();
+            input = waitForNextLine("How may I help you? Type 'quit' to end assistance.", scanner);
+
         }
     }
 
@@ -62,12 +42,8 @@ public class VirtualAssistant {
      * @return the sum of all the number in values
      */
     public double sum(String values) {
-        Scanner scanner = new Scanner(values);
-        double sum = 0.0;
-        while (scanner.hasNext()) {
-            sum += scanner.nextDouble();
-        }
-        return sum;
+        // TODO Implement this method.
+        return 0.0;
     }
 
     /**
@@ -77,12 +53,8 @@ public class VirtualAssistant {
      * @return the product of all the number in values
      */
     public double product(String values) {
-        Scanner scanner = new Scanner(values);
-        double prod = 1.0;
-        while (scanner.hasNext()) {
-            prod *= scanner.nextDouble();
-        }
-        return prod;
+        // TODO Implement this method.
+        return 0.0;
     }
 
     /**
@@ -92,15 +64,8 @@ public class VirtualAssistant {
      * @return the largest number in values
      */
     public double largest(String values) {
-        Scanner scanner = new Scanner(values);
-        double largest = scanner.nextDouble();
-        while (scanner.hasNext()) {
-            double currentValue = scanner.nextDouble();
-            if (currentValue > largest) {
-                largest = currentValue;
-            }
-        }
-        return largest;
+        // TODO Implement this method.
+        return 0.0;
     }
 
     /**
@@ -114,34 +79,6 @@ public class VirtualAssistant {
     }
 
     /**
-     * Places the virtual assistant into a run mode, where it is listening for the
-     * next typed in text. The assistant will end when 'quit' is entered as an input.
-     */
-    public void run() {
-        Scanner scanner = new Scanner(System.in);
-        String input = waitForNextLine("How may I help you? Type 'quit' to end assistance.", scanner);
-
-        while (!input.equalsIgnoreCase("quit")) {
-            try {
-                processInput(input, scanner);
-            } catch (AssistantIncorrectNameException e) {
-                System.out.println(e.getMessage());
-            } catch (AssistantNotImplementedException e) {
-                System.out.println(e.getMessage());
-            } catch(IllegalArgumentException e) {
-                System.out.println("This keyword is unknown by the assistant.");
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid value typed in.");
-            }
-
-            System.out.println();
-            input = waitForNextLine("How may I help you? Type 'quit' to end assistance.", scanner);
-
-        }
-
-    }
-
-    /**
      * Gets the next input from the keyboard.
      * @param prompt the words the assistant will use to ask the user for more information
      * @param scanner the opened Scanner capable of inputting text
@@ -151,7 +88,6 @@ public class VirtualAssistant {
         System.out.println(prompt);
         return scanner.nextLine();
     }
-
 
     public String getName() {
         return name;
