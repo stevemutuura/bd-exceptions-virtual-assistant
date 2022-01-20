@@ -55,6 +55,12 @@ public class VirtualAssistant {
         }
     }
 
+    /**
+     * Returns the sum of all the numbers in values.
+     * Throws an InputMismatchException if values is not only numbers.
+     * @param values numbers separated by spaces
+     * @return the sum of all the number in values
+     */
     public double sum(String values) {
         Scanner scanner = new Scanner(values);
         double sum = 0.0;
@@ -64,6 +70,12 @@ public class VirtualAssistant {
         return sum;
     }
 
+    /**
+     * Calculates the product of all the numbers in values.
+     * Throws an InputMismatchException if values is not only numbers.
+     * @param values numbers separated by spaces
+     * @return the product of all the number in values
+     */
     public double product(String values) {
         Scanner scanner = new Scanner(values);
         double prod = 1.0;
@@ -73,6 +85,12 @@ public class VirtualAssistant {
         return prod;
     }
 
+    /**
+     * Calculates the largest number in values.
+     * Throws an InputMismatchException if values is not only numbers.
+     * @param values numbers separated by spaces
+     * @return the largest number in values
+     */
     public double largest(String values) {
         Scanner scanner = new Scanner(values);
         double largest = scanner.nextDouble();
@@ -85,6 +103,10 @@ public class VirtualAssistant {
         return largest;
     }
 
+    /**
+     * Gets the current hour:minute:seconds of the user.
+     * @return the current time in Hour:minute:second format
+     */
     public String getTime() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
@@ -121,6 +143,7 @@ public class VirtualAssistant {
 
     /**
      * Gets the next input from the keyboard.
+     * @param prompt the words the assistant will use to ask the user for more information
      * @param scanner the opened Scanner capable of inputting text
      * @return the next line of text the user inputted
      */
