@@ -36,7 +36,7 @@ can write new Exception types yourself.
 
 An Exception that does occur will usually generate a stack trace
 to help the programmer identify where the exception took place
-and find out the order of calls to get to that exception. It is not
+and find out the order of calls to get to that exception. It is not a
 good practice to allow these exceptions to prevent programs from
 continuing, so we often find ways to acknowledge the exception in
 code and trigger and alternate action when one occurs.
