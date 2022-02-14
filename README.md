@@ -138,9 +138,3 @@ in the `run` method.
 
 Try implementing the SONG keyword. Create a few different 'songs'
 (just some lyrics) and randomly choose one to sing (print) back.
-
-Prompt the user to re-type in numbers for `SUM` until only
-numbers are typed in. Could you make this occur only one time
-so that if a user does not type in numbers correctly twice
-in a row the assistant cancels the SUM and asks a generic prompt
-again?
