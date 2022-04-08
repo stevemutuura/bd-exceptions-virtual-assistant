@@ -1,7 +1,7 @@
 # Exceptions: Virtual Assistant
 
 We are going to begin building a virtual assistant which can react
-differently to keywords. Many virtual assistants will wake for a
+differently to keywords. Many virtual assistants will wait for a
 'wake' keyword, often the name of the assistant, then begin
 listening for further instructions before giving assistance. This
 usually involves Natural Language Processing, which involves
